@@ -1,0 +1,28 @@
+# According to the Redisson documentation https://github.com/redisson/redisson/blob/master/redisson-spring-boot-starter/README.md
+# When using Spring Boot 3.x you use 'spring.data.redis' common properties.
+# When using Spring Boot 2.x you use 'spring.redis' common properties.
+
+spring:
+  application:
+    name: user
+  profiles:
+    active: default,redis-region
+  threads:
+    virtual:
+      enabled: true
+  data:
+    ## If you need to connect to a non-cluster Redis, use the following.
+    redis:
+      host: localhost
+      port: 6379
+
+## Use this property when we connect to a clustered Redis.
+# See org.springframework.data.redis.connection.RedisClusterConfiguration
+# Check documentation for Cluster setting.
+#spring:
+#  redis:
+#    cluster:
+#      nodes: redis://abcyy.cache.amazonaws.com:6379
+#      timeout: '5'
+#      max-redirects: '3'
+
