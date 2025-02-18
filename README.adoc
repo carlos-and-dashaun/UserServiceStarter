@@ -1,3 +1,55 @@
 = UserService
 
 Sample User Service as a Spring Boot Starter
+
+[NOTE]
+====
+This version uses the *Imperative Programming* (Servlet technology, blocking app model, synchronous model) using the _spring-mvc_ module.
+====
+
+Check the *com.acme.service.user.service.RedisCacheService* interface and its implementations.
+
+Another aspect here is that here it implements a *Redis Region* and a *Redis Hash* strategy, to activate
+its usage, use the *Spring Profile* mechanism.
+
+Use
+
+[source,yaml]
+----
+spring:
+    profiles:
+        active: default,redis-region
+----
+
+This activates the usage of the implementation based in *com.acme.service.user.service.RedisRegionCacheService*.
+
+[source,yaml]
+----
+spring:
+    profiles:
+        active: default,redis-hash
+----
+
+This activates the usage of the implementation based in *com.acme.service.user.service.service.RedisHashService*.
+
+== Running Redis Server Locally
+As of now you may be needing to run the *_Redis_* server to run the application.
+
+The best way to do this is to rely on Docker for this purpose.
+
+Use the following command to create and run the container.
+
+[source,bash]
+----
+$ docker run --name local-redis -d -p 6379:6379 redis:latest
+----
+
+When the container is running and probably you restart your local computer, you
+would need to restart the container, that is the purpose next.
+
+[source,bash]
+----
+$ docker start local-redis
+----
+
+Now you can speak to a *Redis* server.
