@@ -28,7 +28,6 @@ import org.springframework.stereotype.Service;
  * @see AbstractBaseRedisCacheService
  * @see RedisCacheService
  */
-@Service
 public class RedisRegionCacheService<K, V> extends AbstractBaseRedisCacheService<K, V> implements RedisCacheService<K, V> {
     /**
      * Constructor with parameters.
