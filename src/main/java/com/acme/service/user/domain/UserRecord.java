@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Source File:   USERRECORDREDISHASH.JAVA                                    */
+/* Source File:   USERRECORD.JAVA                                             */
 /* Copyright (c), 2025 Acme                                                   */
 /*----------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------
@@ -26,7 +26,7 @@ import org.springframework.data.redis.core.RedisHash;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"id", "firstName", "lastName"})
 @RedisHash
-public record UserRecordRedisHash(
+public record UserRecord(
     @NotNull(message = "User 'Id' may not be null")
     @Positive(message = "User 'Id' must be positive")
     Long id,
